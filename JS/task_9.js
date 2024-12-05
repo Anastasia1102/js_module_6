@@ -10,9 +10,27 @@
 // "Product: [name], Price: $[price], Category: [category]".
 //  створіть екземпляр класу та викличте метод getDetails.
 
-// class Product {
-//   // Ваш код тут
-// }
+class Product {
+  constructor(params) {
+    this.name = params.name;
+    this.price = params.price;
+    this.category = params.category;
+  }
+
+  getDetails() {
+    return `Product: ${this.name}, Price: ${this.price}, Category: ${this.category}`;
+  }
+}
+
+const item = new Product({
+  name: "Samsung s24 ultra",
+  price: 1200,
+  category: "Phone",
+});
+
+console.log(item.getDetails());
+
+console.log("\n");
 
 // Задача 2 (середня)
 
@@ -26,9 +44,22 @@
 // "User: [username], Email: [email], Age: [age]".
 // створіть екземпляр класу з об’єктом, який містить значення для всіх властивостей, і викличте метод getInfo.
 
-// class User {
-//   // Ваш код тут
-// }
+class User {
+  constructor(params) {
+    this.username = params.username;
+    this.email = params.email;
+    this.age = params.age;
+  }
+
+  getInfo() {
+    return `User: ${this.username}, Email: ${this.email}, Age: ${this.age}`;
+  }
+}
+
+const mango = new User({ username: "Mango", email: "mango@mail.com", age: 16 });
+console.log(mango.getInfo());
+
+console.log("\n");
 
 // Задача 3 (середня)
 
@@ -42,9 +73,28 @@
 // "Order #[orderId]: [products.join(", ")] - Total: $[totalAmount]".
 //  створіть екземпляр класу та викличте метод getSummary.
 
-// class Order {
-//   // Ваш код тут
-// }
+class Order {
+  constructor(params) {
+    this.orderId = params.orderid;
+    this.products = params.products;
+    this.totalAmount = params.totalAmount;
+  }
+
+  getSummary() {
+    return `Order #${this.orderId}: ${this.products.join(", ")} - Total: ${
+      this.totalAmount
+    }`;
+  }
+}
+
+const order1 = new Order({
+  orderId: 123,
+  products: ["Laptop", "Mouse", "Keyboard"],
+  totalAmount: 1500,
+});
+console.log(order1.getSummary());
+
+console.log("\n");
 
 // Задача 4 (складна)
 
@@ -61,9 +111,43 @@
 //  2. Метод deactivate, який встановлює властивість isActive у значення false.
 // створіть екземпляр класу, викличте метод getDetails, потім деактивуйте працівника і перевірте значення isActive.
 
-// class Employee {
-//   // Ваш код тут
-// }
+class Employee {
+  constructor({ name, position, salary, isActive }) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
+    this.isActive = isActive;
+  }
+
+  getDetails() {
+    return `Employee ${this.name} works as a ${this.position} and earns ${this.salary}.`;
+  }
+
+  deactivate() {
+    this.isActive = false;
+  }
+}
+
+const employee1 = new Employee({
+  name: "Ivan",
+  position: "manager",
+  salary: 3250,
+  isActive: true,
+});
+const employee2 = new Employee({
+  name: "Sveta",
+  position: "supervisor",
+  salary: 3000,
+  isActive: true,
+});
+
+employee1.deactivate();
+
+console.log(employee1.getDetails());
+console.log(employee1.isActive);
+console.log(employee2.getDetails());
+
+console.log("\n");
 
 // Задача 5 (складна)
 
@@ -81,8 +165,31 @@
 // "Genres: [genres.join(", ")]".
 // створіть екземпляр класу, викличте обидва методи.
 
-// class Movie {
-//   // Ваш код тут
-// }
+class Movie {
+  constructor({ title, director, year, genres }) {
+    this.title = title;
+    this.director = director;
+    this.year = year;
+    this.genres = genres;
+  }
+
+  getDescription() {
+    return `Movie: ${this.title} (Directed by ${this.director}, ${this.year}).`;
+  }
+
+  getGenres() {
+    return `Genres: ${this.genres.join(", ")}`;
+  }
+}
+
+const firstMovie = new Movie({
+  title: "InsideOut",
+  director: "Arthure Smith",
+  year: 2019,
+  genres: ["fiction", "comedy", "detective"],
+});
+
+console.log(firstMovie.getDescription());
+console.log(firstMovie.getGenres());
 
 // Ці задачі допоможуть зрозуміти, як використовувати патерн “об’єкт параметрів” для передачі даних у класи, створювати гнучкі й читабельні конструктори, а також реалізовувати методи класу.
